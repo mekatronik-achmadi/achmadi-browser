@@ -1,6 +1,14 @@
 INSTALL = install
 COPY = cp -vf
+COPYDIR = cp -rvfINSTALL = install
+COPY = cp -vf
 COPYDIR = cp -rvf
+BUILD= gcc -v -v -Wall 
+LIBS= `pkg-config --cflags --libs gtk+-2.0 --libs webkit-1.0`
+APP=achmadi-webview
+
+build: WebKitGtk/main.c
+	$(BUILD) -o WebKitGtk/$(APP) WebKitGtk/main.c $(LIBS)
 
 install:
 	$(INSTALL) -d $(DESTDIR)/usr/lib/chromium/
@@ -21,5 +29,5 @@ install:
 	$(INSTALL) -d $(DESTDIR)/usr/share/applications/
 	$(INSTALL) -m 755 WebKitGtk/$(APP).desktop $(DESTDIR)/usr/share/applications/
 
-.PHONY: install
+.PHONY: build install
 
