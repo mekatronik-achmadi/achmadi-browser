@@ -21,6 +21,7 @@ install:
 	$(INSTALL) -m 755 Blink/chromium-lighter $(DESTDIR)/usr/bin/
 	$(INSTALL) -m 755 Blink/chromium-lightest $(DESTDIR)/usr/bin/
 	$(INSTALL) -d $(DESTDIR)/usr/share/applications/
+	$(INSTALL) -m 755 Blink/chromium.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) -m 755 Blink/chromium-light.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) -m 755 Blink/chromium-lighter.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) -m 755 Blink/chromium-lightest.desktop $(DESTDIR)/usr/share/applications/
