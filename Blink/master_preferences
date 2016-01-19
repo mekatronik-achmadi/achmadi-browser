@@ -1,0 +1,15 @@
+{
+	"bookmark_bar":{
+		"show_apps_shortcut":false
+	},
+	"browser" : { 
+		"show_home_button" : false, 
+		"custom_chrome_frame":false,
+		"check_default_browser" : false
+	},
+	"profile":{
+		"default_content_setting_values":{
+			"notifications":2
+		}
+	}
+}
