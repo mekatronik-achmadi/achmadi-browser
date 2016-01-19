@@ -8,6 +8,7 @@ license=('WTFPL')
 depends=('pkg-config' 'gtk2' 'webkitgtk2' 'chromium')
 makedepends=
 options=('!makeflags')
+install=pkg.install
 source=("${pkgname}-master.zip")
 sha256sums=('SKIP')
 

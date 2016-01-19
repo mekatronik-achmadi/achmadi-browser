@@ -1,0 +1,11 @@
+chromium_menu(){
+	sed -i 's/Exec=chromium/Exec=chromium --disable-gpu/g' /usr/share/applications/chromium.desktop
+}
+
+post_install() {
+	chromium_menu
+}
+
+post_upgrade() {
+	chromium_menu
+}
