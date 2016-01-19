@@ -15,8 +15,7 @@ int main (int argc, char** argv)
 	
 	/* Main Window title*/
 	gchar *wintitle;
-	//wintitle = g_strdup_printf("%s","Achmadi's Web Viewer");
-	wintitle = g_strdup_printf("%s","Achmadi's File Viewer");
+	wintitle = g_strdup_printf("%s","Achmadi's Web Viewer");
 	gtk_window_set_title (GTK_WINDOW (window), wintitle);
 	
 	/* Create Page */
@@ -40,7 +39,6 @@ int main (int argc, char** argv)
 	
 	/* Load a default URI */
 	webkit_web_view_load_uri (WEBKIT_WEB_VIEW (embed), "http://www.google.com/");
-	//webkit_web_view_load_uri (WEBKIT_WEB_VIEW (embed), "file:///");
 	
 	/* Gtk Main Loop */
 	gtk_main();
