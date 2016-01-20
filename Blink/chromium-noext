@@ -46,25 +46,25 @@ use Text::ParseWords qw ( shellwords );
 	#return @flash_flags;
 #}
 
-#sub get_user_flags {
-	#my $conf_path = config_home 'chromium-flags.conf';
-	#open my $conf, '<', $conf_path or return;
+sub get_user_flags {
+	my $conf_path = config_home 'chromium-flags.conf';
+	open my $conf, '<', $conf_path or return;
 
-	#my @lines = grep {!/^(\s*#|\s*$)/} map { chomp; $_ } <$conf>;
-	#return if not @lines;
+	my @lines = grep {!/^(\s*#|\s*$)/} map { chomp; $_ } <$conf>;
+	return if not @lines;
 
-	#my @user_flags = shellwords @lines;
+	my @user_flags = shellwords @lines;
 
-	#unless (@user_flags) {
-		#system '/usr/lib/chromium-launcher/launcher-errmsg',
-			#'Unable to parse user flags',
-			#"Please check $conf_path for errors (e.g. mismatched quotes).\n\n" .
-			#"The launcher will now exit.";
-		#exit 1;
-	#}
+	unless (@user_flags) {
+		system '/usr/lib/chromium-launcher/launcher-errmsg',
+			'Unable to parse user flags',
+			"Please check $conf_path for errors (e.g. mismatched quotes).\n\n" .
+			"The launcher will now exit.";
+		exit 1;
+	}
 
-	#return @user_flags;
-#}
+	return @user_flags;
+}
 
 sub get_lightweight_flags{
 	my @lightweight_flags;
@@ -81,13 +81,12 @@ sub get_lightweight_flags{
 		"--v8-cache-options=off",
 		"--disable-cache",
 		"--disable-application-cache",
-		"--disable-extensions",
-		"--app=http://www.google.com"
+		"--disable-extensions"
 		);
 	return @lightweight_flags;
 }
 
 $ENV{CHROME_WRAPPER} = abs_path($0);
-$ENV{CHROME_DESKTOP} = 'chromium-lightest.desktop';
+$ENV{CHROME_DESKTOP} = 'chromium-noext.desktop';
 
-exec '/usr/lib/chromium/chromium', get_lightweight_flags;
+exec '/usr/lib/chromium/chromium', get_lightweight_flags, get_user_flags, @ARGV;
