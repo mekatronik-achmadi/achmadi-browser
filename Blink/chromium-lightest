@@ -69,8 +69,7 @@ use Text::ParseWords qw ( shellwords );
 sub get_lightweight_flags{
 	my @lightweight_flags;
 	@lightweight_flags=(	
-		"--single-process",
-		"--no-sandbox",
+		"--renderer-process-limit=2",
 		"--disk-cache-size=10000",
 		"--disable-gpu",
 		"--disable-offline-auto-reload",
@@ -82,13 +81,25 @@ sub get_lightweight_flags{
 		"--v8-cache-options=off",
 		"--disable-cache",
 		"--disable-application-cache",
-		"--disable-extensions",
-		"--app=http://www.google.com/"
+		"--disable-extensions"
 		);
 	return @lightweight_flags;
+}
+
+sub get_app_url{
+	my @url;
+	my @app_url;
+	if(@ARGV){
+		@url=@ARGV;
+	}
+	else{
+		@url="http://www.google.com/";
+	}
+	@app_url="--app=@url";
+	return @app_url;		
 }
 
 $ENV{CHROME_WRAPPER} = abs_path($0);
 $ENV{CHROME_DESKTOP} = 'chromium-lightest.desktop';
 
-exec '/usr/lib/chromium/chromium', get_lightweight_flags;
+exec '/usr/lib/chromium/chromium', get_lightweight_flags,get_app_url;
