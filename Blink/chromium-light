@@ -69,7 +69,7 @@ sub get_user_flags {
 sub get_lightweight_flags{
 	my @lightweight_flags;
 	@lightweight_flags=(	
-		"--renderer-process-limit=2",
+		"--renderer-process-limit=1",
 		"--disk-cache-size=10000",
 		"--disable-gpu",
 		"--disable-offline-auto-reload",
