@@ -81,25 +81,13 @@ sub get_lightweight_flags{
 		"--v8-cache-options=off",
 		"--disable-cache",
 		"--disable-application-cache",
-		"--disable-extensions"
+		"--disable-extensions",
+		"--app=http://www.google.com"
 		);
 	return @lightweight_flags;
-}
-
-sub get_app_url{
-	my @url;
-	my @app_url;
-	if(@ARGV){
-		@url=@ARGV;
-	}
-	else{
-		@url="http://www.google.com/";
-	}
-	@app_url="--app=@url";
-	return @app_url;		
 }
 
 $ENV{CHROME_WRAPPER} = abs_path($0);
 $ENV{CHROME_DESKTOP} = 'chromium-lightest.desktop';
 
-exec '/usr/lib/chromium/chromium', get_lightweight_flags,get_app_url;
+exec '/usr/lib/chromium/chromium', get_lightweight_flags;
