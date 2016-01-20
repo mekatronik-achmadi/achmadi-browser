@@ -1,5 +1,5 @@
 chromium_menu(){
-	sed -i 's/Exec=chromium/Exec=chromium --disable-gpu/g' /usr/share/applications/chromium.desktop
+	sed -i 's/Exec=chromium %U/Exec=chromium --disable-gpu %U/g' /usr/share/applications/chromium.desktop
 }
 
 post_install() {
