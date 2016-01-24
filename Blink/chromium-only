@@ -16,36 +16,6 @@ use JSON::PP qw( decode_json );
 use File::BaseDir qw( config_home );
 use Text::ParseWords qw ( shellwords );
 
-#my %PEPPER_FLASH = (
-	#manifest => '/usr/lib/PepperFlash/manifest.json',
-	#plugin => '/usr/lib/PepperFlash/libpepflashplayer.so',
-#);
-
-#sub get_flash_version {
-	#open my $manifest, '<', $PEPPER_FLASH{manifest} or return;
-
-	#my $json;
-
-	#eval {
-		#$json = decode_json do { local $/; <$manifest> };
-	#};
-
-	#return $json->{version} if $json;
-#}
-
-#sub get_flash_flags {
-	#my $flash_version = get_flash_version() // '';
-	#my @flash_flags;
-
-	#if ($flash_version =~ /^[\d.]+$/ and -f $PEPPER_FLASH{plugin}) {
-		#@flash_flags = (
-			#"--ppapi-flash-path=$PEPPER_FLASH{plugin}",
-			#"--ppapi-flash-version=$flash_version");
-	#}
-
-	#return @flash_flags;
-#}
-
 sub get_user_flags {
 	my $conf_path = config_home 'chromium-flags.conf';
 	open my $conf, '<', $conf_path or return;
@@ -87,6 +57,6 @@ sub get_lightweight_flags{
 }
 
 $ENV{CHROME_WRAPPER} = abs_path($0);
-$ENV{CHROME_DESKTOP} = 'chromium-noext.desktop';
+$ENV{CHROME_DESKTOP} = 'chromium-only.desktop';
 
 exec '/usr/lib/chromium/chromium', get_lightweight_flags, get_user_flags, @ARGV;

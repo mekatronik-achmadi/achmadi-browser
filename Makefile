@@ -18,14 +18,14 @@ install:
 	$(INSTALL) -m 644 Blink/ublocko.crx $(DESTDIR)/usr/lib/chromium/default_apps/
 	$(INSTALL) -d $(DESTDIR)/usr/bin/
 	$(INSTALL) -m 755 Blink/chromium-light $(DESTDIR)/usr/bin/
-	$(INSTALL) -m 755 Blink/chromium-noext $(DESTDIR)/usr/bin/
+	$(INSTALL) -m 755 Blink/chromium-only $(DESTDIR)/usr/bin/
 	$(INSTALL) -d $(DESTDIR)/usr/share/applications/
 	$(INSTALL) -m 755 Blink/chromium-light.desktop $(DESTDIR)/usr/share/applications/
-	$(INSTALL) -m 755 Blink/chromium-noext.desktop $(DESTDIR)/usr/share/applications/
-	$(INSTALL) -d $(DESTDIR)/usr/bin/
-	$(INSTALL) -m 755 WebKitGtk/$(APP) $(DESTDIR)/usr/bin/
-	$(INSTALL) -d $(DESTDIR)/usr/share/applications/
-	$(INSTALL) -m 755 WebKitGtk/$(APP).desktop $(DESTDIR)/usr/share/applications/
+	$(INSTALL) -m 755 Blink/chromium-only.desktop $(DESTDIR)/usr/share/applications/
+#	$(INSTALL) -d $(DESTDIR)/usr/bin/
+#	$(INSTALL) -m 755 WebKitGtk/$(APP) $(DESTDIR)/usr/bin/
+#	$(INSTALL) -d $(DESTDIR)/usr/share/applications/
+#	$(INSTALL) -m 755 WebKitGtk/$(APP).desktop $(DESTDIR)/usr/share/applications/
 
 .PHONY: build install
 
