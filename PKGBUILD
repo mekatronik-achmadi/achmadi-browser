@@ -2,7 +2,8 @@
 pkgname=achmadi-chromium
 pkgver=0.1
 pkgrel=1
-pkgdesc="Simple Web-Browser based on WebKitGtk or Blink "
+#pkgdesc="Simple Web-Browser based on WebKitGtk or Blink "
+pkgdesc="Simple Web-Browser based on Chromium "
 #arch=('x86_64' 'i686')
 arch=('any')
 url="https://github.com/mekatronik-achmadi/achmadi-browser"
