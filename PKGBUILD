@@ -1,4 +1,5 @@
-pkgname=achmadi-browser
+#pkgname=achmadi-browser
+pkgname=achmadi-chromium
 pkgver=0.1
 pkgrel=1
 pkgdesc="Simple Web-Browser based on WebKitGtk or Blink "
@@ -6,7 +7,8 @@ pkgdesc="Simple Web-Browser based on WebKitGtk or Blink "
 arch=('any')
 url="https://github.com/mekatronik-achmadi/achmadi-browser"
 license=('WTFPL')
-depends=('pkg-config' 'gtk2' 'webkitgtk2' 'chromium')
+#depends=('pkg-config' 'gtk2' 'webkitgtk2' 'chromium')
+depends=('chromium')
 makedepends=
 options=('!makeflags')
 #install=pkg.install
