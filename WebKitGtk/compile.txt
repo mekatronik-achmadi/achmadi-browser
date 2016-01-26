@@ -1,7 +1,0 @@
-Dependencies:
-pkg-config
-gtk2
-webkitgtk2
-
-Compile:
-gcc -v -v -Wall -o webview main.c $(pkg-config --cflags --libs gtk+-2.0 --libs webkit-1.0)
